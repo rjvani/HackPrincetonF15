@@ -1,4 +1,8 @@
 import csv
+import cv2
+import numpy as np
+import urllib
+from matplotlib import pyplot as plt
 
 def colorToValue(color):
   if color == "Black":
@@ -25,10 +29,10 @@ def colorToValue(color):
     return int("ffff00", 16)
   if color == "Teal":
     return int("008080", 16)
-  return 0
+  return color
 
 # open output file and get a csv writer
-outfile = open("test2.csv", "a")
+outfile = open("test2.csv", "w")
 writer = csv.writer(outfile)
 
 # write header and data
@@ -36,11 +40,32 @@ header = ["Url", "Category", "isAdultContent", "isRacyContent", "adultScore", "r
 writer.writerow(header)
 
 cr = csv.reader(open("test.csv","rU"))
-for row in cr:    
+for row in cr:
+  # download image
+  urllib.urlretrieve(row[0], "data.jpg")
+  
+  # convert color text to int value
   row[8] = colorToValue(row[8])
   row[9] = colorToValue(row[9])
   row = row[0:12]
+
+  img = cv2.imread('data.jpg',0)
+
+  # Initiate STAR detector
+  orb = cv2.ORB()
+
+  # find the keypoints with ORB
+  kp = orb.detect(img,None)
+
+  # compute the descriptors with ORB
+  kp, des = orb.compute(img, kp)
+
+  # draw only keypoints location,not size and orientation
+  img2 = cv2.drawKeypoints(img,kp,color=(0,255,0), flags=0)
+  # plt.imshow(img2),plt.show()
+
   writer.writerow(row)
+  break
 
 outfile.close()
 
