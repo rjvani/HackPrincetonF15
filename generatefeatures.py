@@ -1,5 +1,6 @@
 import pyoxford
 import csv
+import time
 
 api = pyoxford.vision("ee629b252bb9449ab6da07d05dfe00e8")
 
@@ -9,13 +10,14 @@ writer = csv.writer(outfile)
 
 # write header and data
 header = ["Url", "Category", "isAdultContent", "isRacyContent", "adultScore", "racyScore", "age", "gender", "dominantColorForeground", "dominantColorBackground", "accentColor", "emotion"]
-# writer.writerow(header)
+writer.writerow(header)
 
-f = open('imgurl.csv')
+f = open('urls.csv')
 imgUrlSet = csv.reader(f)
 
 for url in imgUrlSet:
   imgUrl = url[0]
+  print("processing " + imgUrl)
   result = api.analyze(imgUrl)
 
   category = result.categories[0].name
@@ -55,5 +57,6 @@ for url in imgUrlSet:
 
   r = [imgUrl, category, isAdultContent, isRacyContent, adultScore, racyScore, age, gender, colorForeground, colorBackground, accentColor, "none"]
   writer.writerow(r)
+  time.sleep(1)
 
 outfile.close()

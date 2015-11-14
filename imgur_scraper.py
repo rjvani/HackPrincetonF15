@@ -1,11 +1,12 @@
 
 from imgurpython import ImgurClient
 
-PATH = "imgur.txt"
-client_id = "YOUR CLIENT ID"
-client_secret = "YOUR CLIENT SECRET"
+PATH = "imgur1.txt"
+client_id = 'b68fbc6850008f8'
+client_secret = 'b83cc295315d15e167a61d3a8a572ee5bf42d731'
 
-client = ImgurClient(client_id, client_secret)
+imgur_client = ImgurClient(client_id, client_secret)
+imgur_gallery = imgur_client.gallery()
 
 # CMU 15-112
 def writeFile(filename, contents, mode="wt"):
@@ -14,7 +15,7 @@ def writeFile(filename, contents, mode="wt"):
 
 def main():
   result = ""
-  items = client.gallery()
+  items = imgur_gallery
   extensionIndex = -4
   # get random images
   for item in items:
