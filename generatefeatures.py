@@ -5,12 +5,12 @@ import time
 api = pyoxford.vision("ee629b252bb9449ab6da07d05dfe00e8")
 
 # open output file and get a csv writer
-outfile = open("test.csv", "w")
+outfile = open("test.csv", "a")
 writer = csv.writer(outfile)
 
 # write header and data
 header = ["Url", "Category", "isAdultContent", "isRacyContent", "adultScore", "racyScore", "age", "gender", "dominantColorForeground", "dominantColorBackground", "accentColor", "emotion"]
-writer.writerow(header)
+# writer.writerow(header)
 
 f = open('urls.csv')
 imgUrlSet = csv.reader(f)
@@ -20,7 +20,14 @@ for url in imgUrlSet:
   print("processing " + imgUrl)
   result = api.analyze(imgUrl)
 
-  category = result.categories[0].name
+  category = ""
+  categoryError = False
+
+  try:
+    category = result.categories[0].name
+  except IndexError:
+    print ("no category")
+    categoryError = True
 
   isAdultContent = 0
   isRacyContent = 0
@@ -56,7 +63,7 @@ for url in imgUrlSet:
     accentColor = int(result.color.accentColor, 16)
 
   r = [imgUrl, category, isAdultContent, isRacyContent, adultScore, racyScore, age, gender, colorForeground, colorBackground, accentColor, "none"]
-  writer.writerow(r)
-  time.sleep(1)
+  if not categoryError:
+    writer.writerow(r)
 
 outfile.close()
