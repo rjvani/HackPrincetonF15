@@ -1,0 +1,12 @@
+
+#map_preview {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    float: left;
+}
+
+.preview_text {
+    display: block;
+    float: right;
+}
