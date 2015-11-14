@@ -87,7 +87,7 @@ for row in cr:
     
   writer.writerow(row)
   imgNum += 1
-  os.remove('/Users/marvin/HackPrinceton2015/HackPrincetonF15/' + imageName)
+  os.remove('/Users/marvin/HackPrinceton2015/HackPrincetonF15/face_mine/' + imageName)
   
 outfile.close()
 
