@@ -2,7 +2,9 @@ import csv
 import cv2
 import numpy as np
 import urllib
-from matplotlib import pyplot as plt
+import os
+
+B=2**12; # number of dimensions in our feature space
 
 def colorToValue(color):
   if color == "Black":
@@ -37,22 +39,27 @@ writer = csv.writer(outfile)
 
 # write header and data
 header = ["Url", "Category", "isAdultContent", "isRacyContent", "adultScore", "racyScore", "age", "gender", "dominantColorForeground", "dominantColorBackground", "accentColor", "emotion"]
+for i in range(B):
+  header.append("v"+str(i))
 writer.writerow(header)
 
 cr = csv.reader(open("test.csv","rU"))
+imgNum = 0
 for row in cr:
   # download image
-  urllib.urlretrieve(row[0], "data.jpg")
+  imageName = "data"+str(imgNum)+".jpg"
+  print("processing image " + str(imgNum))
+  urllib.urlretrieve(row[0], imageName)
   
   # convert color text to int value
   row[8] = colorToValue(row[8])
   row[9] = colorToValue(row[9])
   row = row[0:12]
 
-  img = cv2.imread('data.jpg',0)
+  img = cv2.imread(imageName,0)
 
   # Initiate STAR detector
-  orb = cv2.ORB()
+  orb = cv2.ORB_create()
 
   # find the keypoints with ORB
   kp = orb.detect(img,None)
@@ -60,12 +67,27 @@ for row in cr:
   # compute the descriptors with ORB
   kp, des = orb.compute(img, kp)
 
-  # draw only keypoints location,not size and orientation
-  img2 = cv2.drawKeypoints(img,kp,color=(0,255,0), flags=0)
-  # plt.imshow(img2),plt.show()
 
+  v=[0]*B; # initialize the vector to be all-zeros
+
+  count = 0
+  for i in range(len(kp)):
+    desSum = 0
+    for descVal in des[i]:
+      desSum += descVal
+    v[hash(kp[i].pt[0] * 7121 * desSum) % B]=1
+    v[hash(kp[i].pt[1] * 6635609 * desSum) % B]=1
+    count += 2
+    
+  for feature in v:
+    row.append(feature)
+
+  print count
+  print sum(v)
+    
   writer.writerow(row)
-  break
-
+  imgNum += 1
+  os.remove('/Users/marvin/HackPrinceton2015/HackPrincetonF15/' + imageName)
+  
 outfile.close()
 
