@@ -1,0 +1,452 @@
+{
+  "AK": {
+    "Anger": 0.05,
+    "Disgust": 0.0,
+    "Fear": 0.35,
+    "Happiness": 0.6,
+    "Neutral": 0.0,
+    "Sadness": 0.0,
+    "Surprise": 0.0
+  },
+  "AL": {
+    "Anger": 0.08695652173913043,
+    "Disgust": 0.043478260869565216,
+    "Fear": 0.34782608695652173,
+    "Happiness": 0.43478260869565216,
+    "Neutral": 0.043478260869565216,
+    "Sadness": 0.043478260869565216,
+    "Surprise": 0.0
+  },
+  "AR": {
+    "Anger": 0.075,
+    "Disgust": 0.1,
+    "Fear": 0.175,
+    "Happiness": 0.55,
+    "Neutral": 0.05,
+    "Sadness": 0.05,
+    "Surprise": 0.0
+  },
+  "AZ": {
+    "Anger": 0.1,
+    "Disgust": 0.1,
+    "Fear": 0.2,
+    "Happiness": 0.45,
+    "Neutral": 0.05,
+    "Sadness": 0.1,
+    "Surprise": 0.0
+  },
+  "CA": {
+    "Anger": 0.1,
+    "Disgust": 0.05,
+    "Fear": 0.05,
+    "Happiness": 0.7,
+    "Neutral": 0.0,
+    "Sadness": 0.1,
+    "Surprise": 0.0
+  },
+  "CO": {
+    "Anger": 0.05,
+    "Disgust": 0.1,
+    "Fear": 0.15,
+    "Happiness": 0.4,
+    "Neutral": 0.2,
+    "Sadness": 0.1,
+    "Surprise": 0.0
+  },
+  "CT": {
+    "Anger": 0.1,
+    "Disgust": 0.1,
+    "Fear": 0.15,
+    "Happiness": 0.5,
+    "Neutral": 0.05,
+    "Sadness": 0.1,
+    "Surprise": 0.0
+  },
+  "DE": {
+    "Anger": 0.05,
+    "Disgust": 0.15,
+    "Fear": 0.2,
+    "Happiness": 0.4,
+    "Neutral": 0.1,
+    "Sadness": 0.1,
+    "Surprise": 0.0
+  },
+  "FL": {
+    "Anger": 0.05,
+    "Disgust": 0.05,
+    "Fear": 0.25,
+    "Happiness": 0.5,
+    "Neutral": 0.05,
+    "Sadness": 0.1,
+    "Surprise": 0.0
+  },
+  "GA": {
+    "Anger": 0.05,
+    "Disgust": 0.1,
+    "Fear": 0.1,
+    "Happiness": 0.6,
+    "Neutral": 0.05,
+    "Sadness": 0.1,
+    "Surprise": 0.0
+  },
+  "HI": {
+    "Anger": 0.15,
+    "Disgust": 0.1,
+    "Fear": 0.0,
+    "Happiness": 0.65,
+    "Neutral": 0.05,
+    "Sadness": 0.05,
+    "Surprise": 0.0
+  },
+  "IA": {
+    "Anger": 0.0,
+    "Disgust": 0.05,
+    "Fear": 0.2,
+    "Happiness": 0.65,
+    "Neutral": 0.0,
+    "Sadness": 0.1,
+    "Surprise": 0.0
+  },
+  "ID": {
+    "Anger": 0.05,
+    "Disgust": 0.0,
+    "Fear": 0.2,
+    "Happiness": 0.55,
+    "Neutral": 0.1,
+    "Sadness": 0.1,
+    "Surprise": 0.0
+  },
+  "IL": {
+    "Anger": 0.05,
+    "Disgust": 0.1,
+    "Fear": 0.15,
+    "Happiness": 0.65,
+    "Neutral": 0.0,
+    "Sadness": 0.05,
+    "Surprise": 0.0
+  },
+  "IN": {
+    "Anger": 0.05,
+    "Disgust": 0.1,
+    "Fear": 0.25,
+    "Happiness": 0.5,
+    "Neutral": 0.05,
+    "Sadness": 0.05,
+    "Surprise": 0.0
+  },
+  "KS": {
+    "Anger": 0.05,
+    "Disgust": 0.05,
+    "Fear": 0.25,
+    "Happiness": 0.5,
+    "Neutral": 0.0,
+    "Sadness": 0.15,
+    "Surprise": 0.0
+  },
+  "KY": {
+    "Anger": 0.1,
+    "Disgust": 0.1,
+    "Fear": 0.2,
+    "Happiness": 0.45,
+    "Neutral": 0.05,
+    "Sadness": 0.1,
+    "Surprise": 0.0
+  },
+  "LA": {
+    "Anger": 0.15,
+    "Disgust": 0.0,
+    "Fear": 0.15,
+    "Happiness": 0.55,
+    "Neutral": 0.05,
+    "Sadness": 0.1,
+    "Surprise": 0.0
+  },
+  "MA": {
+    "Anger": 0.05,
+    "Disgust": 0.05,
+    "Fear": 0.2,
+    "Happiness": 0.65,
+    "Neutral": 0.05,
+    "Sadness": 0.0,
+    "Surprise": 0.0
+  },
+  "MD": {
+    "Anger": 0.1,
+    "Disgust": 0.15,
+    "Fear": 0.1,
+    "Happiness": 0.55,
+    "Neutral": 0.05,
+    "Sadness": 0.05,
+    "Surprise": 0.0
+  },
+  "ME": {
+    "Anger": 0.15,
+    "Disgust": 0.05,
+    "Fear": 0.4,
+    "Happiness": 0.3,
+    "Neutral": 0.05,
+    "Sadness": 0.05,
+    "Surprise": 0.0
+  },
+  "MI": {
+    "Anger": 0.1,
+    "Disgust": 0.05,
+    "Fear": 0.15,
+    "Happiness": 0.7,
+    "Neutral": 0.0,
+    "Sadness": 0.0,
+    "Surprise": 0.0
+  },
+  "MN": {
+    "Anger": 0.15,
+    "Disgust": 0.0,
+    "Fear": 0.15,
+    "Happiness": 0.65,
+    "Neutral": 0.0,
+    "Sadness": 0.05,
+    "Surprise": 0.0
+  },
+  "MO": {
+    "Anger": 0.05,
+    "Disgust": 0.1,
+    "Fear": 0.4,
+    "Happiness": 0.3,
+    "Neutral": 0.0,
+    "Sadness": 0.15,
+    "Surprise": 0.0
+  },
+  "MS": {
+    "Anger": 0.2,
+    "Disgust": 0.0,
+    "Fear": 0.1,
+    "Happiness": 0.6,
+    "Neutral": 0.05,
+    "Sadness": 0.05,
+    "Surprise": 0.0
+  },
+  "MT": {
+    "Anger": 0.1,
+    "Disgust": 0.15,
+    "Fear": 0.05,
+    "Happiness": 0.55,
+    "Neutral": 0.1,
+    "Sadness": 0.05,
+    "Surprise": 0.0
+  },
+  "NC": {
+    "Anger": 0.05,
+    "Disgust": 0.0,
+    "Fear": 0.35,
+    "Happiness": 0.5,
+    "Neutral": 0.05,
+    "Sadness": 0.05,
+    "Surprise": 0.0
+  },
+  "ND": {
+    "Anger": 0.19047619047619047,
+    "Disgust": 0.0,
+    "Fear": 0.2857142857142857,
+    "Happiness": 0.42857142857142855,
+    "Neutral": 0.047619047619047616,
+    "Sadness": 0.047619047619047616,
+    "Surprise": 0.0
+  },
+  "NE": {
+    "Anger": 0.15,
+    "Disgust": 0.1,
+    "Fear": 0.2,
+    "Happiness": 0.45,
+    "Neutral": 0.05,
+    "Sadness": 0.05,
+    "Surprise": 0.0
+  },
+  "NH": {
+    "Anger": 0.0,
+    "Disgust": 0.0,
+    "Fear": 0.2,
+    "Happiness": 0.65,
+    "Neutral": 0.0,
+    "Sadness": 0.15,
+    "Surprise": 0.0
+  },
+  "NJ": {
+    "Anger": 0.05,
+    "Disgust": 0.05,
+    "Fear": 0.3,
+    "Happiness": 0.55,
+    "Neutral": 0.05,
+    "Sadness": 0.0,
+    "Surprise": 0.0
+  },
+  "NM": {
+    "Anger": 0.1,
+    "Disgust": 0.15,
+    "Fear": 0.25,
+    "Happiness": 0.45,
+    "Neutral": 0.05,
+    "Sadness": 0.0,
+    "Surprise": 0.0
+  },
+  "NV": {
+    "Anger": 0.15,
+    "Disgust": 0.05,
+    "Fear": 0.05,
+    "Happiness": 0.75,
+    "Neutral": 0.0,
+    "Sadness": 0.0,
+    "Surprise": 0.0
+  },
+  "NY": {
+    "Anger": 0.05,
+    "Disgust": 0.0,
+    "Fear": 0.15,
+    "Happiness": 0.6,
+    "Neutral": 0.1,
+    "Sadness": 0.1,
+    "Surprise": 0.0
+  },
+  "OH": {
+    "Anger": 0.08,
+    "Disgust": 0.04,
+    "Fear": 0.16,
+    "Happiness": 0.6,
+    "Neutral": 0.08,
+    "Sadness": 0.04,
+    "Surprise": 0.0
+  },
+  "OK": {
+    "Anger": 0.0,
+    "Disgust": 0.15,
+    "Fear": 0.2,
+    "Happiness": 0.55,
+    "Neutral": 0.05,
+    "Sadness": 0.05,
+    "Surprise": 0.0
+  },
+  "OR": {
+    "Anger": 0.1,
+    "Disgust": 0.1,
+    "Fear": 0.2,
+    "Happiness": 0.35,
+    "Neutral": 0.05,
+    "Sadness": 0.2,
+    "Surprise": 0.0
+  },
+  "PA": {
+    "Anger": 0.05,
+    "Disgust": 0.05,
+    "Fear": 0.25,
+    "Happiness": 0.45,
+    "Neutral": 0.15,
+    "Sadness": 0.05,
+    "Surprise": 0.0
+  },
+  "RI": {
+    "Anger": 0.25,
+    "Disgust": 0.05,
+    "Fear": 0.05,
+    "Happiness": 0.45,
+    "Neutral": 0.15,
+    "Sadness": 0.05,
+    "Surprise": 0.0
+  },
+  "SC": {
+    "Anger": 0.0,
+    "Disgust": 0.05,
+    "Fear": 0.05,
+    "Happiness": 0.9,
+    "Neutral": 0.0,
+    "Sadness": 0.0,
+    "Surprise": 0.0
+  },
+  "SD": {
+    "Anger": 0.05263157894736842,
+    "Disgust": 0.0,
+    "Fear": 0.3684210526315789,
+    "Happiness": 0.5263157894736842,
+    "Neutral": 0.0,
+    "Sadness": 0.05263157894736842,
+    "Surprise": 0.0
+  },
+  "TN": {
+    "Anger": 0.05,
+    "Disgust": 0.2,
+    "Fear": 0.1,
+    "Happiness": 0.55,
+    "Neutral": 0.05,
+    "Sadness": 0.05,
+    "Surprise": 0.0
+  },
+  "TX": {
+    "Anger": 0.2,
+    "Disgust": 0.1,
+    "Fear": 0.0,
+    "Happiness": 0.4,
+    "Neutral": 0.15,
+    "Sadness": 0.15,
+    "Surprise": 0.0
+  },
+  "UT": {
+    "Anger": 0.15,
+    "Disgust": 0.1,
+    "Fear": 0.25,
+    "Happiness": 0.4,
+    "Neutral": 0.05,
+    "Sadness": 0.05,
+    "Surprise": 0.0
+  },
+  "VA": {
+    "Anger": 0.25,
+    "Disgust": 0.05,
+    "Fear": 0.25,
+    "Happiness": 0.4,
+    "Neutral": 0.0,
+    "Sadness": 0.05,
+    "Surprise": 0.0
+  },
+  "VT": {
+    "Anger": 0.0,
+    "Disgust": 0.0625,
+    "Fear": 0.0625,
+    "Happiness": 0.5625,
+    "Neutral": 0.125,
+    "Sadness": 0.1875,
+    "Surprise": 0.0
+  },
+  "WA": {
+    "Anger": 0.1,
+    "Disgust": 0.1,
+    "Fear": 0.15,
+    "Happiness": 0.4,
+    "Neutral": 0.1,
+    "Sadness": 0.15,
+    "Surprise": 0.0
+  },
+  "WI": {
+    "Anger": 0.15,
+    "Disgust": 0.05,
+    "Fear": 0.25,
+    "Happiness": 0.4,
+    "Neutral": 0.1,
+    "Sadness": 0.05,
+    "Surprise": 0.0
+  },
+  "WV": {
+    "Anger": 0.2,
+    "Disgust": 0.05,
+    "Fear": 0.4,
+    "Happiness": 0.3,
+    "Neutral": 0.05,
+    "Sadness": 0.0,
+    "Surprise": 0.0
+  },
+  "WY": {
+    "Anger": 0.05,
+    "Disgust": 0.05,
+    "Fear": 0.35,
+    "Happiness": 0.35,
+    "Neutral": 0.0,
+    "Sadness": 0.2,
+    "Surprise": 0.0
+  }
+}

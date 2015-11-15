@@ -4,7 +4,7 @@ import numpy as np
 import urllib
 import os
 
-B=2**12; # number of dimensions in our feature space
+B=2**12 # number of dimensions in our feature space
 
 def colorToValue(color):
   if color == "Black":
@@ -34,16 +34,16 @@ def colorToValue(color):
   return color
 
 # open output file and get a csv writer
-outfile = open("test2.csv", "w")
+outfile = open("test3.csv", "w")
 writer = csv.writer(outfile)
 
 # write header and data
-header = ["Url", "Category", "isAdultContent", "isRacyContent", "adultScore", "racyScore", "age", "gender", "dominantColorForeground", "dominantColorBackground", "accentColor", "emotion"]
+header = ["Url", "emotion"]
 for i in range(B):
   header.append("v"+str(i))
 writer.writerow(header)
 
-cr = csv.reader(open("test.csv","rU"))
+cr = csv.reader(open("testc.csv","rU"))
 imgNum = 0
 for row in cr:
   # download image
@@ -52,9 +52,14 @@ for row in cr:
   urllib.urlretrieve(row[0], imageName)
   
   # convert color text to int value
-  row[8] = colorToValue(row[8])
-  row[9] = colorToValue(row[9])
-  row = row[0:12]
+  c1 = colorToValue(row[8])
+  c2 = colorToValue(row[9])
+  c3 = row[10]
+  aScore = row[4]
+  rScore = row[5]
+  age = row[6]
+  gender = row[7]
+  row = row[:1] + row[11:12]
 
   img = cv2.imread(imageName,0)
 
@@ -67,23 +72,26 @@ for row in cr:
   # compute the descriptors with ORB
   kp, des = orb.compute(img, kp)
 
-
   v=[0]*B; # initialize the vector to be all-zeros
 
-  count = 0
-  for i in range(len(kp)):
+  fraction = B/9
+  v[hash(c1) % fraction]=1
+  v[(hash(c2) % fraction) + fraction]=1
+  v[(hash(c3) % fraction) + 2*fraction]=1
+  v[(hash(aScore * 24953) % fraction) + 3*fraction]=1
+  v[(hash(rScore * 30707) % fraction) + 4*fraction]=1
+  v[(hash(age * 34129) % fraction)+ 5*fraction]=1
+  v[(hash(gender * 41227) % fraction) + 6*fraction]=1
+
+  for i in range(len(kp)/10):
     desSum = 0
-    for descVal in des[i]:
-      desSum += descVal
-    v[hash(kp[i].pt[0] * 7121 * desSum) % B]=1
-    v[hash(kp[i].pt[1] * 6635609 * desSum) % B]=1
-    count += 2
+    # for descVal in des[i]:
+    #   desSum += descVal
+    v[(hash(kp[i].pt[0] * 7121) % fraction) + 7*fraction]=1
+    v[(hash(kp[i].pt[1] * 6635609) % fraction) + 8*fraction]=1
     
   for feature in v:
     row.append(feature)
-
-  print count
-  print sum(v)
     
   writer.writerow(row)
   imgNum += 1
