@@ -1,5 +1,5 @@
 body {
-    background-image: url("/static/img/bg.jpg");
+    background-image: url("/static/img/bs_skyline.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -21,11 +21,17 @@ h3 {
     text-align: center;
     color: #aaa;
 }
+.main_logo {
+    position: absolute;
+    height: 90%;
+    display: block;
+    transform: translateX(90%) translateY(-140%);
+}
 .main_arrow {
     position: absolute;
-    height: 50%;
+    height: 90%;
     vertical-align: middle;
-    transform: translateX(-60%) rotate(270deg);
+    transform: translateX(-52%) rotate(180deg);
 }
 .no_select {
     -webkit-touch-callout: none;

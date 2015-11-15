@@ -496,4 +496,5 @@ for (i = 0; i < statesData["features"].length; i++) {
     emotions["Neutral"] /= sum;
     emotions["Sadness"] /= sum;
     emotions["Surprise"] /= sum;
+    statesData["features"][i]["properties"]["emotions"] = emotions;
 }
