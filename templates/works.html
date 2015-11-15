@@ -88,18 +88,26 @@
                       <hr size=7>
                       <div class="content">
                         <div class="col-xs-8 col-sm-6">
-                          <img src="{{ url_for('static', filename='img/will.jpg') }}" id="map_preview">
+                          <img src="{{ url_for('static', filename='img/will.jpg') }}" class="preview_image">
                         </div>
                         <div class="col-xs-4 col-sm-6">
                           <h3 class="work_header">Labelling Emotions</h3>
                           <p>
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                            For this part, we mined and built a collection of 
+                            random images through the <b>Imgur API</b>. These
+                            images were shown to different people, and we used
+                            a Python script with <b>OpenCV</b> to capture a
+                            subject's facial reaction in response to seeing
+                            the image. By using <b>Microsoft Project Oxford
+                            Emotion API</b>, we saw the emotions for each face in
+                            the captured image. Then, we created associations between
+                            the set of images and observed emotions.
                           </p>
                         </div>
                       </div>
                       <div class="content">
                         <div class="col-xs-8 col-sm-6">
-                          <img src="{{ url_for('static', filename='img/azure.jpg') }}" id="map_preview">
+                          <img src="{{ url_for('static', filename='img/azure.jpg') }}" class="preview_image">
                         </div>
                         <div class="col-xs-4 col-sm-6">
                           <h3 class="work_header">Training with Microsoft Azure</h3>
@@ -110,7 +118,7 @@
                       </div>
                       <div class="content">
                         <div class="col-xs-8 col-sm-6">
-                          <img src="{{ url_for('static', filename='img/azure.jpg') }}" id="map_preview">
+                          <img src="{{ url_for('static', filename='img/twitter-api.jpg') }}" class="preview_image">
                         </div>
                         <div class="col-xs-4 col-sm-6">
                           <h3 class="work_header">Mining Regional Data from Twitter</h3>
@@ -119,7 +127,18 @@
                           </p>
                         </div>
                       </div>
-                    </div>
+                      <div class="content">
+                          <div class="col-xs-8 col-sm-6">
+                            <img src="{{ url_for('static', filename='img/maps-preview.jpg') }}" class="preview_image">
+                          </div>
+                          <div class="col-xs-4 col-sm-6">
+                            <h3 class="work_header">Classifying and Displaying Data</h3>
+                            <p>
+                              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                            </p>
+                          </div>
+                        </div>
+                      </div>
                   </div>
                 </div>
             </div>
