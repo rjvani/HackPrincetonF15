@@ -469,6 +469,16 @@ var statesData = {"type":"FeatureCollection","features":[
   }},"geometry":{"type":"Polygon","coordinates":[[[-66.448338,17.984326],[-66.771478,18.006234],[-66.924832,17.929556],[-66.985078,17.973372],[-67.209633,17.956941],[-67.154863,18.19245],[-67.269879,18.362235],[-67.094617,18.515589],[-66.957694,18.488204],[-66.409999,18.488204],[-65.840398,18.433435],[-65.632274,18.367712],[-65.626797,18.203403],[-65.730859,18.186973],[-65.834921,18.017187],[-66.234737,17.929556],[-66.448338,17.984326]]]}}
 ]};
 
+Math.seed = function(s) {
+    return function() {
+        s = Math.sin(s) * 10000; return s - Math.floor(s);
+    };
+};
+
+var random1 = Math.seed(42);
+var random2 = Math.seed(random1());
+Math.random = Math.seed(random2());
+
 for (i = 0; i < statesData["features"].length; i++) {
     r1 = Math.random();
     r2 = Math.random();

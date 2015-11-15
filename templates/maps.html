@@ -58,14 +58,14 @@
                   </a>
                   <div class="panel-collapse collapse" id="collapse_emotions">
                     <div class="panel-body">
-                      <a href="#" class="list-group-item">All</a>
-                      <a href="#" class="list-group-item">Anger</a>
-                      <a href="#" class="list-group-item">Disgust</a>
-                      <a href="#" class="list-group-item">Fear</a>
-                      <a href="#" class="list-group-item">Happiness</a>
-                      <a href="#" class="list-group-item">Neutral</a>
-                      <a href="#" class="list-group-item">Sadness</a>
-                      <a href="#" class="list-group-item">Surprise</a>
+                      <a href="#" class="list-group-item" id="all_button">All</a>
+                      <a href="#" class="list-group-item" id="anger_button">Anger</a>
+                      <a href="#" class="list-group-item" id="disgust_button">Disgust</a>
+                      <a href="#" class="list-group-item" id="fear_button">Fear</a>
+                      <a href="#" class="list-group-item" id="happy_button">Happiness</a>
+                      <a href="#" class="list-group-item" id="neutral_button">Neutral</a>
+                      <a href="#" class="list-group-item" id="sadness_button">Sadness</a>
+                      <a href="#" class="list-group-item" id="surprise_button">Surprise</a>
                     </div>
                   </div>
               </li>
@@ -97,6 +97,14 @@
           <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
           <script type="text/javascript" src="{{ url_for('static', filename='js/us-states.js') }}"></script>
           <script>
+            var all_button = document.getElementById('all_button');
+            var anger_button = document.getElementById('anger_button');
+            var disgust_button = document.getElementById('disgust_button');
+            var fear_button = document.getElementById('fear_button');
+            var happy_button = document.getElementById('happy_button');
+            var neutral_button = document.getElementById('neutral_button');
+            var sadness_button = document.getElementById('sadness_button');
+            var surprise_button = document.getElementById('surprise_button');
 
             var map = L.map('map').setView([40, -100], 4);
 
@@ -113,6 +121,14 @@
                 .setLatLng(e.latlng)
                 .setContent("You clicked the map at " + e.latlng.toString())
                 .openOn(map);
+            }
+
+            function toHex(str) {
+              var result = '';
+              for (var i=0; i<str.length; i++) {
+                result += str.charCodeAt(i).toString(16);
+              }
+              return result;
             }
 
             function getColor(d) {
@@ -229,11 +245,9 @@
             legend.onAdd = function (map) {
 
                 var div = L.DomUtil.create('div', 'info legend'),
-                    grades = [0, 10, 20, 50, 100, 200, 500, 1000],
                     emotions = ["Anger", "Disgust", "Fear", "Happiness", "Neutral", "Sadness", "Surprise"]
                     labels = [];
 
-                // loop through our density intervals and generate a label with a colored square for each interval
                 for (var i = 0; i < emotions.length; i++) {
                     div.innerHTML +=
                         '<i style="background:' + getColorFromEmotion(emotions[i]) + '"></i> ' +
@@ -244,6 +258,27 @@
             };
 
             legend.addTo(map);
+
+            var test_legend = L.control({position: 'bottomright'});
+
+            test_legend.onAdd = function (map, emotion) {
+              var div = L.DomUtil.create('div', 'info legend'),
+                  labels = [];
+              var steps = 7;
+              for (var index = 1; index < steps + 1; index++) {
+                var color = toHex(getColorFromEmotion(emotions)) / steps;
+                console.log(color);
+                div.innerHTML +=
+                  '<i style="background:' + color + '"></i> ' +
+                  emotions[index - 1] + (emotions[i] ? '<br>' : '');
+              }
+              return div;
+            }
+
+            surprise_button.onclick = function() {
+              map.removeControl(legend);
+              test_legend.addTo(map, "Surprise");
+            }
 
           </script>
 

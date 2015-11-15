@@ -23,6 +23,7 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="{{ url_for('static', filename='css/pe-icon-7-stroke.css') }}"rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css/home.css') }}"rel="stylesheet" />
     
 </head>
 
@@ -81,17 +82,21 @@
                   <div class="col-md-12">
                     <div class="card">
                       <div class="header">
-                        <h2 align="center">
-                          A picture tells a thousand words.
-                          <br>
-                        </h2>
-                        <b>
-                          <img src="/static/img/VibeHome.png" class="main_logo" style="width:175px;height:260px;">
-                          <br>
-                          Using pictures posted to social media, we've analyzed the current mood around the country. Click on maps to discover nearby vibes.
-                        </b>
+                        <h1 align="center">
+                          A Picture Tells A Thousand Words
+                        </h1>
                       </div>
                       <hr size=7>
+                      <img src="/static/img/VibeHome.png" class="home_logo">
+                      <div class="description">
+                        <p class="main_description_text">
+                          By analyzing pictures from social media, 
+                          we've made a way to see 
+                          the current mood around the country. 
+                          Click on Maps to discover nearby vibes.
+                        </p>
+                      </div>
+                    </div>
                     </div>
                   </div>
                 </div>
