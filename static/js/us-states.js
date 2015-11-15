@@ -468,3 +468,32 @@ var statesData = {"type":"FeatureCollection","features":[
     "Surprise": 0.0
   }},"geometry":{"type":"Polygon","coordinates":[[[-66.448338,17.984326],[-66.771478,18.006234],[-66.924832,17.929556],[-66.985078,17.973372],[-67.209633,17.956941],[-67.154863,18.19245],[-67.269879,18.362235],[-67.094617,18.515589],[-66.957694,18.488204],[-66.409999,18.488204],[-65.840398,18.433435],[-65.632274,18.367712],[-65.626797,18.203403],[-65.730859,18.186973],[-65.834921,18.017187],[-66.234737,17.929556],[-66.448338,17.984326]]]}}
 ]};
+
+for (i = 0; i < statesData["features"].length; i++) {
+    r1 = Math.random();
+    r2 = Math.random();
+    r3 = Math.random();
+    r4 = Math.random();
+    r5 = Math.random();
+    r6 = Math.random();
+    r7 = Math.random();
+
+    emotions = statesData["features"][i]["properties"]["emotions"];
+    emotions["Anger"] += r1;
+    emotions["Disgust"] += r2;
+    emotions["Fear"] += r3;
+    emotions["Happiness"] += r4;
+    emotions["Neutral"] += r5;
+    emotions["Sadness"] += r6;
+    emotions["Surprise"] += r7;
+
+    sum = emotions["Anger"]+emotions["Disgust"]+emotions["Fear"]+emotions["Happiness"]+emotions["Neutral"]+emotions["Sadness"]+emotions["Surprise"];
+
+    emotions["Anger"] /= sum;
+    emotions["Disgust"] /= sum;
+    emotions["Fear"] /= sum;
+    emotions["Happiness"] /= sum;
+    emotions["Neutral"] /= sum;
+    emotions["Sadness"] /= sum;
+    emotions["Surprise"] /= sum;
+}
