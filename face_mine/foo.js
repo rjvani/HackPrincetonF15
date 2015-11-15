@@ -7,7 +7,7 @@ function binaryRead(file) {
 }
 
 var oxfordEmotion = require("node-oxford-emotion")("32622b4d753d4a88b470b63da536a794");
-var imageData = "./faces/11.png"
+var imageData = "./faces/27.png"
 var emotion = oxfordEmotion.recognize("image", binaryRead(imageData), function(cb) {
     console.log(cb);
     var data = JSON.parse(cb)[0]["scores"];

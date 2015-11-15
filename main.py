@@ -18,5 +18,9 @@ def maps():
 def works():
     return render_template("works.html")
 
+@app.route('/about.html')
+def about():
+    return render_template("about.html")
+
 if __name__ == "__main__":
     app.run()

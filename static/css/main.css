@@ -10,3 +10,8 @@
     display: block;
     float: right;
 }
+
+.work_header {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}

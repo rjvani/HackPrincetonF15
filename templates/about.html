@@ -13,7 +13,7 @@
     
     <!-- Bootstrap core CSS     -->
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" />
-    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet" />
+
     <!-- Animation library for notifications   -->
     <link href="{{ url_for('static', filename='css/animate.min.css') }}" rel="stylesheet"/>
     
@@ -45,7 +45,7 @@
             </div>
                        
             <ul class="nav">
-                <li class="active">
+                <li>
                     <a href="index.html">
                         <i class="pe-7s-graph"></i> 
                         <p>Dashboard</p>
@@ -63,7 +63,7 @@
                         <p>How It Works</p>
                     </a>
                 </li> 
-                <li>
+                <li class="active">
                     <a href="about.html">
                         <i class="pe-7s-user"></i> 
                         <p>About Us</p>
@@ -82,23 +82,13 @@
                     <div class="card">
                       <div class="header">
                         <h1 align="center">
-                          Ja Feelz
+                          Who We Are
                           <br>
-                          <small>
-                            Discover how the world is feeling today.
-                          </small> 
                         </h1>
                       </div>
                       <hr size=7>
                       <div class="content">
-                        <div class="col-xs-8 col-sm-6">
-                          <img src="{{ url_for('static', filename='img/maps-preview.jpg') }}" id="map_preview">
-                        </div>
-                        <div class="col-xs-4 col-sm-6">
-                          <p>
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                          </p>
-                        </div>
+                        
                       </div>
                     </div>
                   </div>
