@@ -115,12 +115,14 @@
             var surprise_list = ['#FFFFFF', '#C9E1FF', '#AFCFF6', '#AFB9F6', '#AFABED', '#AF9EED', '#af97de'];
 
             var map = L.map('map').setView([40, -100], 4);
+            var current_list = null;
 
             L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6IjZjNmRjNzk3ZmE2MTcwOTEwMGY0MzU3YjUzOWFmNWZhIn0.Y8bhBaUMqFiPrDRW9hieoQ', {
               maxZoom: 18,
               id: 'mapbox.light'
             }).addTo(map);
-            L.geoJson(statesData).addTo(map);
+            var assetLayerGroup = L.layerGroup().addTo(map);
+            L.geoJson(statesData).addTo(assetLayerGroup);
 
             var popup = L.popup();
 
@@ -195,9 +197,41 @@
 
             info.addTo(map);
 
+            function getListFromEmotion(e) {
+              return e == "Anger"   ? anger_list :
+                     e == "Disgust" ? disgust_list :
+                     e == "Fear"     ? fear_list :
+                     e == "Happiness"  ? happy_list :
+                     e == "Neutral"   ? neutral_list :
+                     e == "Sadness"   ? sad_list :
+                     surprise_list;
+            }
+
+            function getEmotionFromList(e) {
+              return e == anger_list ? "Anger" :
+                     e == disgust_list ? "Disgust" :
+                     e == fear_list ? "Fear" :
+                     e == happy_list ? "Happiness"  :
+                     e == neutral_list ? "Neutral" :
+                     e == sad_list ? "Sadness" :
+                     surprise_list;
+            }
+
+            function certainEmotion(emotions, e) {
+              var value = emotions[e];
+              var list = getListFromEmotion(e);
+              return (value < 1 / 7) ? list[0] :
+                     (value < 2 / 7) ? list[1] :
+                     (value < 3 / 7) ? list[2] :
+                     (value < 4 / 7) ? list[3] :
+                     (value < 5 / 7) ? list[4] :
+                     (value < 6 / 7) ? list[5] : list[6];
+            }
+
             function style(feature) {
                 return {
-                    fillColor: getColorFromEmotionDict(feature.properties.emotions),
+                    fillColor: (current_list == null) ? getColorFromEmotionDict(feature.properties.emotions) : 
+                                certainEmotion(feature.properties.emotions, getEmotionFromList(current_list)),
                     weight: 2,
                     opacity: 1,
                     color: 'white',
@@ -206,7 +240,18 @@
                 };
             }
 
-            L.geoJson(statesData, {style: style}).addTo(map);
+            function styleEmotion(feature, emotion) {
+              return {
+                  fillColor: certainEmotion(feature.properties.emotions, emotion),
+                  weight: 2,
+                  opacity: 1,
+                  color: 'white',
+                  dashArray: '3',
+                  fillOpacity: 0.7
+              };
+            }
+
+            L.geoJson(statesData, {style: style}).addTo(assetLayerGroup);
 
             function highlightFeature(e) {
                 var layer = e.target;
@@ -246,7 +291,7 @@
             geojson = L.geoJson(statesData, {
                 style: style,
                 onEachFeature: onEachFeature
-            }).addTo(map);
+            }).addTo(assetLayerGroup);
 
             var legend = L.control({position: 'bottomright'});
 
@@ -261,7 +306,6 @@
                         '<i style="background:' + getColorFromEmotion(emotions[i]) + '"></i> ' +
                         emotions[i] + (emotions[i + 1] ? '<br>' : '');
                 }
-
                 return div;
             };
 
@@ -270,6 +314,7 @@
             function addHelp(map, list) {
               var div = L.DomUtil.create('div', 'info legend'),
                   labels = [];
+              current_list = list;
               for (var i = 0; i < list.length; i++) {
                 var mFirst = (i / list.length);
                 var mSecond = ((i + 1) / list.length);
@@ -279,6 +324,13 @@
                   '<i style="background:' + list[i] + '"></i> ' +
                    first + ((i + 1) ? '&ndash;' + second + '<br>' : '0.9+');
               }
+              assetLayerGroup.clearLayers();
+              L.geoJson(statesData).addTo(assetLayerGroup);
+              L.geoJson(statesData, {style: style}).addTo(assetLayerGroup);
+              L.geoJson(statesData, {
+                style: style,
+                onEachFeature: onEachFeature
+              }).addTo(assetLayerGroup);
               return div;
             }
 
@@ -372,13 +424,12 @@
               var div = L.DomUtil.create('div', 'info legend'),
               emotions = ["Anger", "Disgust", "Fear", "Happiness", "Neutral", "Sadness", "Surprise"]
               labels = [];
-
+              current_list = null;
               for (var i = 0; i < emotions.length; i++) {
                   div.innerHTML +=
                       '<i style="background:' + getColorFromEmotion(emotions[i]) + '"></i> ' +
                       emotions[i] + (emotions[i + 1] ? '<br>' : '');
               }
-
               return div;
             }
 
