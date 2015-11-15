@@ -103,8 +103,16 @@
             var fear_button = document.getElementById('fear_button');
             var happy_button = document.getElementById('happy_button');
             var neutral_button = document.getElementById('neutral_button');
-            var sadness_button = document.getElementById('sadness_button');
+            var sad_button = document.getElementById('sadness_button');
             var surprise_button = document.getElementById('surprise_button');
+
+            var anger_list = ['#FFFFFF', '#F8E6BD', '#F2D68F', '#E3C386', '#E3C354', '#E3C322', '#E3B505'];
+            var disgust_list = ['#FFFFFF', '#FFEBE5', '#F7D0B6','#C48F71', '#A24F48', '#95382C', '#95190c'];
+            var fear_list = ['#FFFFFF', '#D6B5E3', '#BD82B6', '#994E91', '#6F376A', '#611956','#610345'];
+            var happy_list = ['#FFFFFF', '#D2EBFF', '#9DC0B7', '#66AA91', '#499B84', '#2C8E7D', '#107e7d'];
+            var neutral_list = ['#FFFFFF', '#61EAFF', '#04B4E0', '#0485E0', '#045FC4', '#044BA9', '#044B7F'];
+            var sad_list = ['#FFFFFF', '#FFE1E1', '#F69074', '#DA674A', '#DA674A', '#DA504A', '#c4504a'];
+            var surprise_list = ['#FFFFFF', '#C9E1FF', '#AFCFF6', '#AFB9F6', '#AFABED', '#AF9EED', '#af97de'];
 
             var map = L.map('map').setView([40, -100], 4);
 
@@ -259,25 +267,125 @@
 
             legend.addTo(map);
 
-            var test_legend = L.control({position: 'bottomright'});
-
-            test_legend.onAdd = function (map, emotion) {
+            function addHelp(map, list) {
               var div = L.DomUtil.create('div', 'info legend'),
                   labels = [];
-              var steps = 7;
-              for (var index = 1; index < steps + 1; index++) {
-                var color = toHex(getColorFromEmotion(emotions)) / steps;
-                console.log(color);
+              for (var i = 0; i < list.length; i++) {
+                var mFirst = (i / list.length);
+                var mSecond = ((i + 1) / list.length);
+                var first = parseFloat(Math.round(mFirst * 100) / 100).toFixed(2);
+                var second = parseFloat(Math.round(mSecond * 100) / 100).toFixed(2);
                 div.innerHTML +=
-                  '<i style="background:' + color + '"></i> ' +
-                  emotions[index - 1] + (emotions[i] ? '<br>' : '');
+                  '<i style="background:' + list[i] + '"></i> ' +
+                   first + ((i + 1) ? '&ndash;' + second + '<br>' : '0.9+');
               }
               return div;
             }
 
+            var anger_legend = L.control({position: 'bottomright'});
+
+            anger_legend.onAdd = function (map) {
+              return addHelp(map, anger_list);
+            }
+
+            anger_button.onclick = function() {
+              map.removeControl(legend);
+              legend = anger_legend;
+              legend.addTo(map);
+            }
+
+            var disgust_legend = L.control({position: 'bottomright'});
+
+            disgust_legend.onAdd = function (map) {
+              return addHelp(map, disgust_list);
+            }
+
+            disgust_button.onclick = function() {
+              map.removeControl(legend);
+              legend = disgust_legend;
+              legend.addTo(map);
+            }
+
+            var fear_legend = L.control({position: 'bottomright'});
+
+            fear_legend.onAdd = function (map) {
+              return addHelp(map, fear_list);
+            }
+
+            fear_button.onclick = function() {
+              map.removeControl(legend);
+              legend = fear_legend;
+              legend.addTo(map);
+            }
+
+            var happy_legend = L.control({position: 'bottomright'});
+
+            happy_legend.onAdd = function (map) {
+              return addHelp(map, anger_list);
+            }
+
+            happy_button.onclick = function() {
+              map.removeControl(legend);
+              legend = happy_legend;
+              legend.addTo(map);
+            }
+
+            var neutral_legend = L.control({position: 'bottomright'});
+
+            neutral_legend.onAdd = function (map) {
+              return addHelp(map, neutral_list);
+            }
+
+            neutral_button.onclick = function() {
+              map.removeControl(legend);
+              legend = neutral_legend;
+              legend.addTo(map);
+            }
+
+            var sad_legend = L.control({position: 'bottomright'});
+
+            sad_legend.onAdd = function (map) {
+              return addHelp(map, sad_list);
+            }
+
+            sad_button.onclick = function() {
+              map.removeControl(legend);
+              legend = sad_legend;
+              legend.addTo(map);
+            }
+
+            var surprise_legend = L.control({position: 'bottomright'});
+
+            surprise_legend.onAdd = function (map) {
+              return addHelp(map, surprise_list);
+            }
+
             surprise_button.onclick = function() {
               map.removeControl(legend);
-              test_legend.addTo(map, "Surprise");
+              legend = surprise_legend;
+              legend.addTo(map);
+            }
+
+            var all_legend = L.control({position: 'bottomright'});
+
+            all_legend.onAdd = function (map) {
+              var div = L.DomUtil.create('div', 'info legend'),
+              emotions = ["Anger", "Disgust", "Fear", "Happiness", "Neutral", "Sadness", "Surprise"]
+              labels = [];
+
+              for (var i = 0; i < emotions.length; i++) {
+                  div.innerHTML +=
+                      '<i style="background:' + getColorFromEmotion(emotions[i]) + '"></i> ' +
+                      emotions[i] + (emotions[i + 1] ? '<br>' : '');
+              }
+
+              return div;
+            }
+
+            all_button.onclick = function() {
+              map.removeControl(legend);
+              legend = all_legend;
+              legend.addTo(map);
             }
 
           </script>
