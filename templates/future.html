@@ -10,6 +10,7 @@
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
     
+    
     <!-- Bootstrap core CSS     -->
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" />
 
@@ -18,8 +19,12 @@
     
     <!--  Light Bootstrap Table core CSS    -->
     <link href="{{ url_for('static', filename='css/light-bootstrap-dashboard.css') }}"rel="stylesheet"/>
-    <link href="{{ url_for('static', filename='css/about.css') }}"rel="stylesheet"/>
-
+    
+    
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="{{ url_for('static', filename='css/demo.css') }}" rel="stylesheet" />
+    
+        
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
@@ -52,13 +57,13 @@
                         <p>How It Works</p>
                     </a>
                 </li> 
-                <li>
+                <li class="active">
                     <a href="future.html">
                         <i class="pe-7s-timer"></i> 
                         <p>Future Plans</p>
                     </a>
                 </li>  
-                <li class="active">
+                <li>
                     <a href="about.html">
                         <i class="pe-7s-user"></i> 
                         <p>About Us</p>
@@ -77,23 +82,13 @@
                     <div class="card">
                       <div class="header">
                         <h1 align="center">
-                          Who We Are
+                          Looking Forward
                           <br>
                         </h1>
                       </div>
                       <hr size=7>
-                      <div class="span7 text-center">
-                        <img src="/static/img/team.jpg" class="team_photo">
-                      </div>
-                      <div class="description">
-                        <p>
-                          We're a team of college undergrads coming from Cornell,
-                          NYU, Purdue, and CMU. This project was our submission
-                          for <b>HackPrinceton Fall 2015</b>. 
-                          We had a lot of fun making this app! 
-                          You can find the source code on Github
-                          <a href="https://github.com/rjvani/HackPrincetonF15" target="_blank">here</a>.
-                        </p>
+                      <div class="content">
+                        
                       </div>
                     </div>
                   </div>

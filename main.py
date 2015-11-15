@@ -22,5 +22,9 @@ def works():
 def about():
     return render_template("about.html")
 
+@app.route('/future.html')
+def future():
+    return render_template("future.html")
+
 if __name__ == "__main__":
     app.run()
