@@ -36,7 +36,7 @@
       <div class="sidebar-wrapper">
             <div class="logo">
                 <a href="main.html" class="simple-text">
-                    Ja Feelz
+                    Vibe
                 </a>
             </div>
                        
@@ -96,7 +96,7 @@
                         <div class="col-xs-4 col-sm-6">
                           <h3 class="work_header">Scaling Framework</h3>
                           <p>
-                            In the future, we would like to make a more robust framework that can scrape more images from different parts of the globe from Twitter. In this hackathon, we were limited by API calls in a condensed frametime, but this is not a limitation outside of this competition. We would also want to make use of the Microsoft Azure Machine Learning endpoints to batch process the data we mined from the images.
+                            In the future, we would like to build a more robust framework to scrape from Twitter large amounts of images from different parts of the world. During this hackathon, we were limited by the number of API calls we could make, which we would be able to work around given more time. We would also extend our framework to make use of our Microsoft Azure Machine Learning endpoints to batch process the data mined from the Twitter images.
                           </p>
                         </div>
                       </div>
@@ -105,9 +105,9 @@
                           <img src="{{ url_for('static', filename='img/maps-preview.jpg') }}" class="preview_image">
                         </div>
                         <div class="col-xs-4 col-sm-6">
-                          <h3 class="work_header">Improving Algorithm Accuracy</h3>
+                          <h3 class="work_header">Improving Model Accuracy</h3>
                           <p>
-                            Time was definitely one of the main constraints in this machine learning problem. There are many ways in which the classifier could have been improved. One improvement would be the creation of more data. Although we made an infrastructure to generate such a dataset, more time would be needed to populate it. Further, a more sophisticated algorithm could be used to classify the data (such as a kernelized SVM, neural networks), as the bias indicated some underfitting. Lastly, if enough data were collected, we could use k-means clustering, a popular unsupervised learning algorithm, to classify clusters and then label them through "semi-supervised" learning by labeling one data point in the cluster. 
+                            The main constraint in developing a good machine learning algorithm was time. There are many ways in which we could have possibly improved the classifier. One of our main problems was that there was a bias inherent in our model, which would be improved by gathering a much larger dataset. Although we developed an infrastructure to collect and process data, we needed more time to create a sizable dataset as we were limited by API request limits and time. Another improvement we could have would be to use a more sophisticated model to classify the data (kernelized SVM, neural networks, etc.), as the high bias and low variance indicated underfitting of data. Additionally, if enough data were to be collected, we could use unsupervised learning via k-means clustering to create clusters and then label them through "semi-supervised" learning by labeling one data point in each cluster. 
                           </p>
                         </div>
                       </div>
@@ -118,7 +118,7 @@
                         <div class="col-xs-4 col-sm-6">
                           <h3 class="work_header">Add Features to Map</h3>
                           <p>
-                            Lastly, we would add more functionality to the map. As mentioned before the framework could be scaled to output even more images per location, and expand the location. We could also... PLEASE INSERT MORE TODO
+                            Lastly, we would add more functionality to the map. As mentioned before, the framework could be scaled to analyze even images per location and zoom into specific locations within each state. We could also display the top tweets and images per region that contributed to the different emotions of that region, allowing users of the app to get a sense of current events around the country.
                           </p>
                         </div>
                       </div>
