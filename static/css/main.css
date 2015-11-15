@@ -24,7 +24,8 @@ h3 {
 .main_arrow {
     position: absolute;
     height: 50%;
-    transform: translateX(-50%) rotate(270deg);
+    vertical-align: middle;
+    transform: translateX(-60%) rotate(270deg);
 }
 .no_select {
     -webkit-touch-callout: none;

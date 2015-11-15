@@ -6,6 +6,10 @@ app = Flask(__name__)
 def homepage():
     return render_template("main.html")
 
+@app.route('/main.html')
+def mainpage():
+    return render_template("main.html")
+
 @app.route('/index.html')
 def dashboard():
     return render_template("index.html")
@@ -25,6 +29,11 @@ def about():
 @app.route('/future.html')
 def future():
     return render_template("future.html")
+
+
+@app.route('/home.html')
+def home():
+    return render_template("home.html")
 
 if __name__ == "__main__":
     app.run()
