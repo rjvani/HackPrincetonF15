@@ -214,7 +214,7 @@
                      e == happy_list ? "Happiness"  :
                      e == neutral_list ? "Neutral" :
                      e == sad_list ? "Sadness" :
-                     surprise_list;
+                     "Surprise";
             }
 
             function certainEmotion(emotions, e) {
@@ -430,6 +430,13 @@
                       '<i style="background:' + getColorFromEmotion(emotions[i]) + '"></i> ' +
                       emotions[i] + (emotions[i + 1] ? '<br>' : '');
               }
+               assetLayerGroup.clearLayers();
+              L.geoJson(statesData).addTo(assetLayerGroup);
+              L.geoJson(statesData, {style: style}).addTo(assetLayerGroup);
+              L.geoJson(statesData, {
+                style: style,
+                onEachFeature: onEachFeature
+              }).addTo(assetLayerGroup);
               return div;
             }
 
