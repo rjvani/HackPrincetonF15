@@ -10,7 +10,6 @@ Flask-Login==0.2.9
 flask-nav==0.5
 Flask-Stormpath==0.0.1
 Flask-WTF==0.12
-freenect==0.0.0
 gunicorn==19.3.0
 image==1.4.1
 imgurpython==1.1.6
