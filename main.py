@@ -4,11 +4,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def homepage():
-    return render_template("index.html")
+    return render_template("main.html")
 
 @app.route('/index.html')
 def dashboard():
-    return homepage()
+    return render_template("index.html")
 
 @app.route('/maps.html')
 def maps():

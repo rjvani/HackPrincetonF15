@@ -1,0 +1,17 @@
+
+.preview_image {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    float: left;
+}
+
+.preview_text {
+    display: block;
+    float: right;
+}
+
+.work_header {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
